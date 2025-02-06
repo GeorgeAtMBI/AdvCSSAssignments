@@ -5,17 +5,14 @@
     <meta charset="UTF-8">
     <title>Advanced CSS - Assignment 1</title>
     <style>
-/* Svi linkovi ka Google-u */
 a[href^="https://www.google.com"] {
   color: green;
 }
 
-/* Link ka LINK group web sajtu */
 a[href="https://www.link-group.eu/"] {
   color: red;
 }
 
-/* Paragrafi unutar second-div elementa */
 #second-div p:nth-child(even) {
   color: blue;
 }
@@ -24,14 +21,12 @@ a[href="https://www.link-group.eu/"] {
   color: red;
 }
 
-/* Dodavanje teksta na kraj Paragrafa 2 i 3 */
 #first-div > p:nth-child(2)::after,
 #first-div > p:nth-child(3)::after {
   content: " – NEW";
   color: yellow;
 }
 
-/* Prelazak miša preko Paragraph 10 elementa */
 body > p:last-of-type:hover {
   font-style: italic;
 }
