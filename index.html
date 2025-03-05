@@ -1,60 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
-    <title>Advanced CSS - Assignment 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animirani Krug</title>
     <style>
-a[href^="https://www.google.com"] {
-  color: rgb(0, 128, 6);
-}
+        body {
+            background-color: #050210;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-a[href="https://www.link-group.eu/"] {
-  color: red;
-}
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-#second-div p:nth-child(even) {
-  color: blue;
-}
+        .krug1 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+            background: radial-gradient(circle, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0));
+            border: 10px solid transparent;
+            animation: glow 3s infinite linear;
+        }
 
-#second-div p:nth-child(odd) {
-  color: red;
-}
+        .krug1::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
+            filter: blur(10px);
+            animation: rotate 3s linear infinite;
+        }
 
-#first-div > p:nth-child(2)::after,
-#first-div > p:nth-child(3)::after {
-  content: " – NEW";
-  color: yellow;
-}
+        .krug2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: absolute;
+            background: #050210;
+        }
 
-body > p:last-of-type:hover {
-  font-style: italic;
-}
+        .krug3 {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            position: absolute;
+            background: radial-gradient(circle, #250e77 0%, rgba(31, 7, 117, 0) 80%);
+            animation: pulse 1.5s infinite ease-in-out;
+            z-index: 3;
+        }
 
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            50% {
+                width: 150px;
+                height: 150px;
+                opacity: 0.5;
+            }
+            100% {
+                width: 150px;
+                height: 150px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                border-color: rgba(251, 93, 173, 0.5);
+                box-shadow: 0 0 10px rgba(251, 93, 173, 0.5);
+            }
+            50% {
+                border-color: rgba(85, 251, 159, 0.5);
+                box-shadow: 0 0 20px rgba(85, 251, 159, 0.5);
+            }
+            100% {
+                border-color: rgba(185, 122, 255, 0.5);
+                box-shadow: 0 0 10px rgba(185, 122, 255, 0.5);
+            }
+        }
     </style>
 </head>
-
 <body>
-    <h1>Main Heading</h1>
-    <p>Paragraph 1</p>
-    <a href="https://www.google.com/">Google</a>
-    <a href="https://www.google.com/doodles">Google Doodles</a>
-    <a href="https://www.link-group.eu/" target="_blank">Goto Link Group</a>
-    <div id="first-div">
-        <h2>Subheading</h2>
-        <p>Paragraph 2</p>
-        <p>Paragraph 3</p>
-        <div id="second-div">
-            <h3>Sub subheading</h3>
-            <p>Paragraph 4</p>
-            <p>Paragraph 5</p>
-            <p>Paragraph 6</p>
-            <p>Paragraph 7</p>
-            <p>Paragraph 8</p>
-        </div>
+    <div class="container">
+        <div class="krug1"></div>
+        <div class="krug2"></div>
+        <div class="krug3"></div>
     </div>
-    <p>Paragraph 9</p>
-    <p>Paragraph 10</p>
 </body>
-
 </html>
