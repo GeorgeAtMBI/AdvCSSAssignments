@@ -3,113 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animirani Krug</title>
+    <title>Responsive Galerija</title>
     <style>
-        body {
-            background-color: #050210;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        .container {
-            position: relative;
+        body {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
         }
-
-        .krug1 {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            position: relative;
-            background: radial-gradient(circle, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0));
-            border: 10px solid transparent;
-            animation: glow 3s infinite linear;
+        h1 {
+            margin-bottom: 20px;
+            
+            text-align: left;
+            align-self: flex-start;
+            font-weight: 400;
+            font-family: "Montserrat";
         }
-
-        .krug1::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 50%;
-            background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
-            filter: blur(10px);
-            animation: rotate 3s linear infinite;
+        .gallery {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, auto);
         }
-
-        .krug2 {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            position: absolute;
-            background: #050210;
+        .gallery-item {
+            background: white;
+            padding: 0px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition-duration: 1s;
         }
-
-        .krug3 {
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            position: absolute;
-            background: radial-gradient(circle, #250e77 0%, rgba(31, 7, 117, 0) 80%);
-            animation: pulse 1.5s infinite ease-in-out;
-            z-index: 3;
+        .gallery-item:hover{
+            transform: scale(1.1);
+            box-shadow: 5px 5px 5px #0000005b;
+            z-index: 99;
         }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px 8px 0px 0px;
+            background: rgb(104, 164, 255);
         }
-
-        @keyframes pulse {
-            0% {
-                width: 0;
-                height: 0;
-                opacity: 1;
-            }
-            50% {
-                width: 150px;
-                height: 150px;
-                opacity: 0.5;
-            }
-            100% {
-                width: 150px;
-                height: 150px;
-                opacity: 0;
+        .gallery-item .caption {
+            margin-top: 10px;
+            padding-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            font-weight: 400;
+            font-family: "Montserrat";
+        }
+        .description {
+            margin-top: 20px;
+            max-width: 100%;
+            text-align: justify;
+            font-weight: 400;
+            font-family: "Montserrat";
+        }
+        
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, auto);
+                grid-template-rows: repeat(4, auto);
             }
         }
-
-        @keyframes glow {
-            0% {
-                border-color: rgba(251, 93, 173, 0.5);
-                box-shadow: 0 0 10px rgba(251, 93, 173, 0.5);
-            }
-            50% {
-                border-color: rgba(85, 251, 159, 0.5);
-                box-shadow: 0 0 20px rgba(85, 251, 159, 0.5);
-            }
-            100% {
-                border-color: rgba(185, 122, 255, 0.5);
-                box-shadow: 0 0 10px rgba(185, 122, 255, 0.5);
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(10, auto);
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="krug1"></div>
-        <div class="krug2"></div>
-        <div class="krug3"></div>
+    <h1>Gallery Heading</h1>
+    <div class="gallery">
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 1"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 2"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 3"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 4"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 5"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 6"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 7"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 8"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 9"><div class="caption">Image Title</div></div>
+        <div class="gallery-item"><img src="Media/placeholder-image.png" alt="Slika 10"><div class="caption">Image Title</div></div>
     </div>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a lacinia nisl, nec tristique sem. Cras id tellus ac mauris posuere varius. Pellentesque vel mi justo. Aenean malesuada purus eu lacinia finibus. Praesent commodo suscipit odio, eu pharetra nulla dignissim nec.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a lacinia nisl, nec tristique sem. Cras id tellus ac mauris posuere varius. Pellentesque vel mi justo. Aenean malesuada purus eu lacinia finibus. Praesent commodo suscipit odio, eu pharetra nulla dignissim nec.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a lacinia nisl, nec tristique sem. Cras id tellus ac mauris posuere varius. Pellentesque vel mi justo. Aenean malesuada purus eu lacinia finibus. Praesent commodo suscipit odio, eu pharetra nulla dignissim nec.</p>
 </body>
 </html>
